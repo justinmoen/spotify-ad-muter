@@ -1,0 +1,28 @@
+{
+	"name": "Mute Spotify Ads",
+	"version": "1.0",
+	"description": "Mutes the Spotify tab if it contains the word Advertisement",
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"declarativeContent"
+	],
+	"background": {
+		"scripts": [
+			"background.js"
+		],
+		"persistent": false
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"*://open.spotify.com/*"
+			],
+			"js": [
+				"observer.js"
+			],
+			"run_at": "document_idle"
+		}
+	],
+	"manifest_version": 2
+}
