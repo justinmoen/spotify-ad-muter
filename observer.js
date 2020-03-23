@@ -2,7 +2,8 @@ var target = document.querySelector('head > title');
 var observer = new window.WebKitMutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
 		var title = mutation.target.textContent;
-		if (title.includes('Advertisement')) {
+		if (title.includes('Advertisement' ||
+		    title === 'Spotify · Spotify')  ) {
 			chrome.runtime.sendMessage({mute: true});
 		}
 		else {
